@@ -1,0 +1,109 @@
+Metadato estructurado conforme a la Norma Técnica Mexicana para la Elaboración de Metadatos Geográficos 
+
+
+* SECCIÓN 1. Identificación del conjunto de datos espaciales o producto 
+
+* SUBSECCIÓN 1.1. Identificación del conjunto de datos espaciales o producto
+- Ecosistema Nacional Informático (ENI): no aplica.
+- Capítulo ENI: no aplica.
+- Subcapítulo ENI: no aplica.
+- Título del conjunto de datos espaciales o producto: División municipal 2023.
+- Descripción del conjunto de datos espaciales o producto: el archivo contiene la división político-administrativa a nivel municipal de cada entidad federativa en México para el año 2023. Datos de origen del Instituto Nacional de Estadística y Geografía (INEGI), 2023.
+- Nombre de archivo: gref_division_municipal_23_mun_a
+
+* SUBSECCIÓN 1.2. Enfoque específico del conjunto de datos o producto
+- Propósito y uso específico: promover el acceso libre a datos geoespaciales estructurados con estándares de calidad e interoperabilidad, para contribuir a la generación e intercambio de conocimiento en temas de delimitación territorial, unidades administrativas y división municipal. El propósito y uso específico de este producto se exponen de forma enunciativa, mas no limitativa. 
+- Tema principal del conjunto de datos espaciales o producto: localización.
+- Grupo de datos del conjunto de datos espaciales o producto: nombres geográficos.
+- Palabras clave: división municipal, entidad federativa, municipios, unidades administrativas, territorio, Instituto Nacional de Estadística y Geografía, INEGI.
+
+* SUBSECCIÓN 1.3. Parámetros del conjunto de datos o producto
+- Idioma del conjunto de datos espaciales o producto: español.
+- Forma de presentación de los datos espaciales: mapa digital.
+- URL del recurso: https://gema.conahcyt.mx/
+- Frecuencia de mantenimiento y actualización: no programado.
+- Codificación: UTF-8.
+- Estructura de datos: vectorial.
+- Tipo de geometría: polígonos.
+- Tamaño de archivo: 60.3 Mb.
+- Formato: gpkg y geojson (complementario csv y xlsx).
+
+
+* SECCIÓN 2. Fechas relacionadas con el conjunto de datos espaciales o productos 
+
+- Fecha de referencia del conjunto de datos espaciales o producto: 04-2024.
+- Tipo de fecha: revisión - identificador de la fecha que especifica cuándo el recurso fue examinado o reexaminado y mejorado o corregido.
+- Fecha de creación de los insumos: 2023.
+- Nombre del insumo: Marco Geoestadístico, diciembre 2023.
+
+
+* SECCIÓN 3. Unidad del estado responsable del conjunto de datos espaciales o productos 
+
+- Nombre de la organización: Consejo Nacional de Humanidades, Ciencias y Tecnologías (Conahcyt).
+- Enlace en línea: https://conahcyt.mx/
+
+
+* SECCIÓN 4. Localización geográfica del conjunto de datos espaciales o productos 
+
+- Coordenadas máximas y mínimas: (-118.365263217771, -86.7104052798836, 14.5320983697664, 32.7186535703901).
+
+
+* SECCIÓN 5. Sistema de referencia 
+
+- Unidades de coordenadas: grados decimales.
+- Sistema de referencia de coordenadas: EPSG:4326.
+
+
+* SECCIÓN 6. Calidad de la información (linaje) 
+
+- Linaje: se descargaron los datos del Instituto Nacional de Estadística y Geografía (INEGI) y la información se estructuró para poder ser presentada en una capa geográfica en formato geopaquete.
+- Pasos del proceso: (A) Se descargaron los datos de la fuente. (B) Se generó el campo 'g_id'. (C) Se verificó la validez de las geometrías. (D) Se ajustaron los nombres de columnas.
+- Responsable de la estructuración del conjunto de datos: equipo Conahcyt-CentroGeo.
+- Fuente: INEGI, Marco Geoestadístico 2023 - https://www.inegi.org.mx/app/biblioteca/ficha.html?upc=794551067314 (fecha de consulta: 15-04-2024).
+
+
+* SECCIÓN 7. Entidades y atributos 
+
+- Detalle de entidades y atributos: el conjunto de datos cuenta con 6 campos y 2,475 objetos geográficos.
+
+
+* SECCIÓN 8. Distribución 
+
+- Tipo de licenciamiento: bajo los términos de libre uso MX de los Datos Abiertos del gobierno de México, ver https://datos.gob.mx/libreusomx
+
+
+* SECCIÓN 9. Información del contacto para los metadatos 
+
+- Nombre de la organización: Consejo Nacional de Humanidades, Ciencias y Tecnologías
+			     Coordinación de Repositorios, Investigación y Prospectiva
+- Correo electrónico de contacto: dadsig@conahcyt.mx
+
+- Fecha de los metadatos: 17-04-24.
+
+
+################################################################ 
+
+Notas u observaciones: se verificó la validez de la geometría con la herramienta “comprobar validez” y se realizó la corrección automática necesaria con la herramienta “corregir geometrías”, ambas del software QGIS 3.22.11. Estas herramientas no detectan ni corrigen errores topológicos como huecos entre los bordes de los polígonos o bordes superpuestos.
+
+################################################################ 
+
+--------------------------------------------
+DICCIONARIO DE CAMPOS O VARIABLES
+
+campo: 'g_id'
+descripción: identificador único consecutivo
+
+campo: 'cve_ent'
+descripción: clave INEGI de la entidad federativa
+
+campo: 'nom_ent'
+descripción: nombre de la entidad federativa
+
+campo: 'cve_mun'
+descripción: clave INEGI del municipio
+
+campo: 'cvegeomun'
+descripción: clave INEGI concatenada de la entidad federativa y el municipio
+
+campo: 'nom_mun'
+descripción: nombre del municipio

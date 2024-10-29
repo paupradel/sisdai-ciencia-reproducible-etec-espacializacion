@@ -1,0 +1,96 @@
+Metadato estructurado conforme a la Norma Técnica Mexicana para la Elaboración de Metadatos Geográficos 
+
+
+* SECCIÓN 1. Identificación del conjunto de datos espaciales o producto 
+ 
+- Ecosistema Nacional Informático (ENI): No aplica.
+- Capítulo ENI: No aplica.
+- Subcapítulo ENI: No aplica.
+- Título del conjunto de datos espaciales o producto: División estatal 2020.
+- Nombre de archivo: gref_division_estatal_20_est_a
+- Propósito: Poner de manifiesto la división político-administrativa a nivel estatal de cada entidad federativa en México.
+- Descripción del conjunto de datos espaciales o producto: El archivo contiene la división político-administrativa a nivel estatal en México. Datos de origen del Instituto Nacional de Estadística y Geografía (INEGI), 2020.
+- Idioma del conjunto de datos espaciales o producto: Español.
+- Tema principal del conjunto de datos espaciales o producto: Localización.
+- Grupo de datos del conjunto de datos espaciales o producto: Grupo de datos de nombres geográficos.
+- Palabras clave: división estatal, entidad federativa, estados, Instituto Nacional de Estadística y Geografía, INEGI, Marco Geoestadístico.
+- Forma de presentación de los datos espaciales: Mapa digital.
+- URL del recurso: https://gema.conahcyt.mx/
+- Frecuencia de mantenimiento y actualización: Anualmente.
+- Uso específico: Visualizar la localización de la división político-administrativa a nivel estatal en México.
+- Codificación: UTF-8.
+- Estructura de datos: Vectorial.
+- Tipo de geometría: Polígonos.
+- Tamaño de archivo: 12.76 Mb.
+- Formato: gpkg y geojson (complementario csv y xlsx).
+
+
+* SECCIÓN 2. Fechas relacionadas con el conjunto de datos espaciales o productos 
+ 
+- Fecha de referencia del conjunto de datos espaciales o producto: 2021.
+- Tipo de fecha: Revisión - identificador de la fecha que especifica cuándo el recurso fue examinado o reexaminado y mejorado o corregido.
+- Fecha de creación de los insumos: 2020.
+- Nombre del insumo: Marco Geoestadístico Nacional 2020.
+
+
+* SECCIÓN 3. Unidad del estado responsable del conjunto de datos espaciales o productos 
+ 
+- Nombre de la organización: Consejo Nacional de Humanidades, Ciencias y Tecnologías (Conahcyt).
+- Enlace en línea: https://conahcyt.mx/
+
+
+* SECCIÓN 4. Localización geográfica del conjunto de datos espaciales o productos 
+ 
+- Coordenadas máximas y mínimas: (911292.029499994, 4082997.36040001, 319149.062499898, 2349614.87169995).
+
+
+* SECCIÓN 5. Sistema de referencia 
+ 
+- Unidades de coordenadas: Grados decimales.
+- Sistema de referencia de coordenadas: EPSG:4326.
+
+
+* SECCIÓN 6. Calidad de la información (linaje) 
+ 
+- Linaje: Se obtuvieron los datos del Marco Geoestadístico Nacional del Instituto Nacional de Estadística y Geografía (INEGI), 2020.
+- Pasos del proceso: (A) Se descargaron los datos de la fuente. (B) Se generó el campo 'g_id'. (C) Posteriormente se integró el archivo de descarga.
+- Fuente: INEGI, Marco Geoestadístico 2020 - https://www.inegi.org.mx/app/biblioteca/ficha.html?upc=889463807469
+
+
+* SECCIÓN 7. Entidades y atributos 
+ 
+- Detalle de entidades y atributos: El conjunto de datos cuenta con 3 campos y 32 objetos geográficos.
+
+
+* SECCIÓN 8. Distribución 
+ 
+- Tipo de licenciamiento: Bajo los términos de libre uso MX de los Datos Abiertos del gobierno de México, ver https://datos.gob.mx/libreusomx
+
+* SECCIÓN 9. Información del contacto para los metadatos 
+ 
+- Nombre de la organización: Consejo Nacional de Humanidades, Ciencias y Tecnologías
+			     Coordinación de Repositorios, Investigación y Prospectiva
+			     
+- Correo electrónico de contacto: dadsig@conahcyt.mx
+
+- Fecha de los metadatos: 16-06-2022.
+
+
+################################################################ 
+ 
+Notas u observaciones: Ninguna.
+
+################################################################ 
+ 
+--------------------------------------------
+DICCIONARIO DE CAMPOS O VARIABLES
+
+campo:'g_id'
+descripción: Identificador único consecutivo
+
+campo:'cve_ent'
+descripción: Clave INEGI de la entidad federativa
+
+campo:'nom_ent'
+descripción: Nombre de la entidad federativa
+
