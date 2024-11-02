@@ -19,11 +19,16 @@ La sección de procesamiento está dividida en dos apartados diferentes. Existe 
 Para correr este procesamiento se requieren las siguientes herramientas
 - [R (> 4.0)](https://www.r-project.org/)
 - [Quarto](https://quarto.org/) 
-- Paquete [sf](https://r-spatial.github.io/sf/): utilizado para manipulación de información espacial
-- Paquete [dplyr](https://dplyr.tidyverse.org/)
-- Paquete [tidyr](https://tidyr.tidyverse.org/)  
+- Paquete [sf](https://r-spatial.github.io/sf/), utilizado para manipulación de información espacial
+- Paquete [dplyr](https://dplyr.tidyverse.org/), para manipulación de datos
+- Paquete [tidyr](https://tidyr.tidyverse.org/), para limpieza y organización de datos  
+- Paquete [here](https://here.r-lib.org/), para simplificar el proceso de utilizar rutas relativas
 
-Adicionalmente te recomendamos contar con el paquete [ggplot2](https://ggplot2.tidyverse.org/) para visualizació de datos, el paquete [janitor](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html) para limpieza de datos y [stringr](https://stringr.tidyverse.org/) para manipulación de texto.
+Adicionalmente te recomendamos contar con los siguientes paquetes:
+- [ggplot2](https://ggplot2.tidyverse.org/) para visualización de datos
+- [readr](https://readr.tidyverse.org/) para lectura de archivos de texto
+- [janitor](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html) para limpieza de datos 
+- [stringr](https://stringr.tidyverse.org/) para manipulación de texto.
 
 También recomendamos instalar el IDE [Rstudio](https://www.rstudio.com/categories/rstudio-ide/), sin embargo es posible correr este proyecto con cualquier otro IDE donde puedas utilizar `R`.  
 
@@ -50,5 +55,5 @@ Para algunos de los ejemplos que presentamos aquí, utilizamos capas descargadas
 ### `python`
 
 ### `R`
-En el apartado de `R` encontrarás ejemplos en formato quarto que puedes seguir para 
+En el apartado de `R` encontrarás ejemplos en formato quarto que puedes seguir para elaborar diferentes tipos de capas según los datos con los que cuentes.
 
