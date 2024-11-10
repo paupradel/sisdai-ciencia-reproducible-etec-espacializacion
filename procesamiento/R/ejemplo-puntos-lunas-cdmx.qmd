@@ -8,12 +8,12 @@ editor_options:
 # Espacialiación de coordenadas a puntos georreferenciados
 En este ejemplo mostramos cómo tranformar coordenadas almacenadas como variables en archivos de texto (csv, txt, tsv), o archivos en formato excel (xlsx), en capas de información geográfica.  
 
-Para esto, vamos a utilizar datos acerca de la ubicacación de las LUNAS de la Secretaría de las Mujeres de la Ciudad de México, donde se brinda la atención a mujeres en situación de violencia. Estos datos fueron publicados en el [portal de datos abiertos](https://datos.cdmx.gob.mx/) de la Ciudad de México. Puedes descargarlos desde [este enlace](https://datos.cdmx.gob.mx/dataset/lunas) o bien leerlos diréctamente desde el código como haremos más adelante.  
+Para esto, vamos a utilizar datos  de la ubicacación de las LUNAS de la Secretaría de las Mujeres de la Ciudad de México, donde se brinda la atención a mujeres en situación de violencia. Estos datos fueron publicados en el [portal de datos abiertos](https://datos.cdmx.gob.mx/) de la Ciudad de México. Puedes descargarlos desde [este enlace](https://datos.cdmx.gob.mx/dataset/lunas) o bien leerlos diréctamente desde el código como haremos más adelante.  
 
-Adicionalmente, para fines de visualización, vamos a utilizar la capa geográfica de municipios en formato geopaquete descargadas desde el [portal de Gema](gema.conahcyt.mx). 
+Adicionalmente, para fines de visualización, vamos a utilizar la capa geográfica de municipios en formato geopaquete descargadas desde el [portal de Gema](https://gema.conahcyt.mx). 
 
 ## Carga de paquetes
-```{r}
+```{r, include=FALSE}
 library(dplyr)
 library(tidyr)
 library(sf)
@@ -38,7 +38,7 @@ municipal <- st_read(here("datos","datos-auxiliares", "gref_division_municipal_2
 ```
 
 ## Exploración inicial de datos
-Lo siguiente es solo para tener una idea de qué información incluye este conjunto de datos
+Lo sigueite es para tener una idea de qué información incluye este conjunto de datos
 ```{r}
 dim(lunas) # dimensiones de los datos
 glimpse(lunas) # Vista general
@@ -52,7 +52,7 @@ El siguiente paso es evaluar la completitud de los datos
 # complete cases para identificar cuantas y cuales filas (registros) tienen informacion en todas las columnas
 sum(complete.cases(lunas)) 
 ```  
-Hay únicamente `{r} sum(complete.cases(lunas))` con datos en todas las columnas. Sin embargo, en este caso, nos interesan únicamente el nombre del centro de atención y la información de las coordenadas.
+Hay únicamente `{r} sum(complete.cases(lunas))` registros con datos en todas las columnas. Sin embargo, en este caso, nos interesan únicamente el nombre del centro de atención y la información de las coordenadas.
 
 ```{r}
 sum(complete.cases(lunas[ , c("nombre_luna", "latitud", "longitud")])) 
@@ -90,8 +90,8 @@ glimpse(lunas_espacial)
 ### Exploración de capa de información de municipios
 Utilizar `sf` permite explorar y manipular los datos geográficos de la misma forma que interactuamos con datos tabulares. La diferencia está en que además incluye por lo menos una variable donde se almacena la información geográfica.
 ```{r}
-glimpse(municipal)
-unique(municipal$nom_ent)
+glimpse(municipal) # esquema general de los datos
+unique(municipal$nom_ent) # identificacion de estados
 ``` 
 Para fines de visualización, vamos a utilizar la capa de municipios, pero filtrando únicamente lo correspondiente a Ciudad de México.
 
@@ -123,6 +123,6 @@ ggplot() +
 
 Finalmente guardamos la capa utilizando la nomenclatura establecida en el proceso ETEC.
 ```{r}
-# write_sf(lunas_espacial, "datos/datos-procesados/sehu_lunascdmx_180123_xy_p.gpkg")
+write_sf(lunas_espacial, "datos/datos-procesados/sehu_lunascdmx_180123_xy_p.gpkg")
 
 ```
