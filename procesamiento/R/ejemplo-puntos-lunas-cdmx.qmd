@@ -5,7 +5,7 @@ editor: source
 editor_options: 
   chunk_output_type: console
 ---
-# Espacialiación de coordenadas a puntos georreferenciados
+# Espacialización de coordenadas a puntos georreferenciados
 En este ejemplo mostramos cómo tranformar coordenadas almacenadas como variables en archivos de texto (csv, txt, tsv), o archivos en formato excel (xlsx), en capas de información geográfica.  
 
 Para esto, vamos a utilizar datos  de la ubicacación de las LUNAS de la Secretaría de las Mujeres de la Ciudad de México, donde se brinda la atención a mujeres en situación de violencia. Estos datos fueron publicados en el [portal de datos abiertos](https://datos.cdmx.gob.mx/) de la Ciudad de México. Puedes descargarlos desde [este enlace](https://datos.cdmx.gob.mx/dataset/lunas) o bien leerlos diréctamente desde el código como haremos más adelante.  
@@ -24,7 +24,7 @@ library(here)
 
 ## Carga de datos
 ```{r}
-# lectura de datos desde el portal de datos abiertos cdmx
+# Lectura de datos desde el portal de datos abiertos CdMx
 
 lunas <- read_csv("https://datos.cdmx.gob.mx/dataset/5a8373a7-cf04-4146-b5cd-b727f0264df2/resource/f7e1be67-ae1b-43e7-aa31-057a6560abd1/download/lunas-cdmx.csv")
 
@@ -32,15 +32,15 @@ lunas <- read_csv("https://datos.cdmx.gob.mx/dataset/5a8373a7-cf04-4146-b5cd-b72
 
 
 ```{r}
-# Datos geogaficos
+# Carga de datos geográficos
 municipal <- st_read(here("datos","datos-auxiliares", "gref_division_municipal_23_mun_a.gpkg"))
 
 ```
 
 ## Exploración inicial de datos
-Lo sigueite es para tener una idea de qué información incluye este conjunto de datos
+Lo siguiente es para tener una idea de qué información incluye este conjunto de datos
 ```{r}
-dim(lunas) # dimensiones de los datos
+dim(lunas) # Dimensiones del conjunto de datos
 glimpse(lunas) # Vista general
 
 ```  
@@ -49,7 +49,7 @@ Podemos ver que los datos vienen organizados de forma hay un registro por cada L
 
 El siguiente paso es evaluar la completitud de los datos
 ```{r}
-# complete cases para identificar cuantas y cuales filas (registros) tienen informacion en todas las columnas
+# complete cases para identificar cuántas y cuáles filas (registros) tienen información en todas las columnas
 sum(complete.cases(lunas)) 
 ```  
 Hay únicamente `{r} sum(complete.cases(lunas))` registros con datos en todas las columnas. Sin embargo, en este caso, nos interesan únicamente el nombre del centro de atención y la información de las coordenadas.
@@ -74,8 +74,8 @@ lunas <-
 
 
 ## Espacialización de puntos
-Para espacializar los datos, vamos a utilzar la función `st_as_sf` que permite convertir diferentes tipos de datos en obejetos espaciales.
-Lo que necesitamos es indicar qué datos queremos espacializar; adicionalmente, vamos a utilizar el argumeto `remove = FALSE` para conservar las coordenas originalea además de crear la variable espacial, la cual nombraremos `geom`.
+Para espacializar los datos, vamos a utilzar la función `st_as_sf` que permite convertir diferentes tipos de datos en objetos espaciales.
+Lo que necesitamos es indicar qué datos queremos espacializar; adicionalmente, vamos a utilizar el argumeto `remove = FALSE` para conservar las coordenas originalea además de crear la variable espacial, la cual nombraremos `geom`. Se asigna el sistema de referencia de coordenadas EPSG:4326 como lo indican los procesos ETEC de Gema. 
 
 ```{r}
 lunas_espacial <- 
@@ -123,6 +123,6 @@ ggplot() +
 
 Finalmente guardamos la capa utilizando la nomenclatura establecida en el proceso ETEC.
 ```{r}
-write_sf(lunas_espacial, "datos/datos-procesados/sehu_lunascdmx_180123_xy_p.gpkg")
+#write_sf(lunas_espacial, "datos/datos-procesados/sehu_lunascdmx_180123_xy_p.gpkg")
 
 ```
