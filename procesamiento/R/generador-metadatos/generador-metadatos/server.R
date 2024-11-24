@@ -7,7 +7,7 @@ options(shiny.maxRequestSize = 800 * 1024^2)  # Define el peso maximo de los arc
 server <- function(input, output, session) {
   
   # Definiciones predeterminadas para variables comunes
-  default_descriptions <- list(
+  descripciones_predefinidas <- list(
     g_id = "identificador único consecutivo",
     cve_ent = "clave INEGI de la entidad federativa",
     nom_ent = "nombre de la entidad federativa",
@@ -35,8 +35,8 @@ server <- function(input, output, session) {
   info_archivo <- reactive({
     req(input$gpkg_file)
     file_path <- input$gpkg_file$datapath
-    file_name <- tools::file_path_sans_ext(basename(input$gpkg_file$name))  # Get base name without extension
-    dir_path <- dirname(file_path)  # Get directory path
+    file_name <- tools::file_path_sans_ext(basename(input$gpkg_file$name))  # lee el nombre sin la extension
+    dir_path <- dirname(file_path)  # ruta del archivo
     
     file_ext <- tools::file_ext(file_path)
     
@@ -68,30 +68,30 @@ server <- function(input, output, session) {
 
   
   # Genera campos de entrada dinamicos para cada campo en el conjunto de datos
-  output$dictionary_inputs <- renderUI({
+  output$entradas_diccionario <- renderUI({
     req(info_archivo()$data)
     
-    fields <- names(info_archivo()$data)
-    input_list <- lapply(fields, function(field) {
-      # Check if there's a default description for this field
-      default_text <- default_descriptions[[field]] %||% ""
+    campos <- names(info_archivo()$data)
+    input_list <- lapply(campos, function(campo) {
+      # Revisa si hay una descripcion predefinida para el campo
+      texto_predeterm <- descripciones_predefinidas[[campo]] %||% ""
       
-      textInput(inputId = paste0("desc_", field), 
-                label = paste("Description for", field),
-                value = default_text,  # Set default description if available
-                placeholder = "Enter description")
+      textInput(inputId = paste0("desc_", campo), 
+                label = paste("Descripción para", campo),
+                value = texto_predeterm,  # Descripcion predefinida (si existe)
+                placeholder = "Ingresa la descripción")
     })
     
     do.call(tagList, input_list)
   })
   
-  # Reactive to generate final text with default template and user input
-  final_text <- reactive({
+  # Reactivo: genera el txt final con base en el texto predefinido y la informacion ingresada por la usuaria
+  texto_final <- reactive({
     req(info_archivo()$data)
-    fields <- names(info_archivo()$data)
+    campos <- names(info_archivo()$data)
     
-    # Template text with placeholders
-    text_template <- paste0(
+    # Texto predefinido con indicadores de informacion a ingresar
+    plantilla_texto <- paste0(
       "Metadato estructurado conforme a la Norma Técnica Mexicana para la Elaboración de Metadatos Geográficos", 
       "\n",
       "\n",
@@ -179,30 +179,30 @@ server <- function(input, output, session) {
       "\n"
     )
     
-    # Add field descriptions with predefined text sections
-    for (field in fields) {
-      description <- input[[paste0("desc_", field)]] %||% "Sin descripción"
-      text_template <- paste0(text_template, 
-                              "--------------------\n",  # Predefined section separator
-                              "campo: ", field, "\n",
-                              "descripción: ", description, "\n")#,
+    # Llena campos de datos con textos predefinidos
+    for (campo in campos) {
+      descripcion <- input[[paste0("desc_", campo)]] %||% "Sin descripción"
+      plantilla_texto <- paste0(plantilla_texto, 
+                              "--------------------\n",  # Separador entre campos
+                              "campo: ", campo, "\n",
+                              "descripción: ", descripcion, "\n")#,
     }
     
-    text_template
+    plantilla_texto
   })
   
-  # Display the generated text in the UI
-  output$generated_text <- renderText({
-    final_text()
+  # Muestra el texto generado en la interfaz
+  output$texto_generado <- renderText({
+    texto_final()
   })
   
-  # Download handler to save the text as a .txt file with same basename and path as .gpkg
-  output$save_text <- downloadHandler(
+  # Manejador de descarga para guardar el texto en formato .txt 
+  output$guardar_texto <- downloadHandler(
     filename = function() {
       paste0(info_archivo()$path, "/", info_archivo()$name, ".txt")
     },
     content = function(file) {
-      writeLines(final_text(), file)
+      writeLines(texto_final(), file)
     }
   )
 }

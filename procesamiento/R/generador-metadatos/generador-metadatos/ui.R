@@ -18,7 +18,7 @@ ui <- page_fillable(
                    placeholder = "No se ha seleccionado ningún archivo"
                    ),
          
-         # Additional inputs for user choices
+         # Campos de entrada
          selectInput("eni", "Ecosistema Nacional Informático (ENI)", 
                      choices = c("Agentes Tóxicos y Agentes Contaminantes", 
                                  "Agua", 
@@ -51,7 +51,7 @@ ui <- page_fillable(
                                  "aguas interiores",
                                  "localización",
                                  "planeamiento catastral",
-                                 "sociedad",
+                                "sociedad",
                                  "estructura",
                                  "transportación",
                                  "comunicación de servicios"
@@ -115,7 +115,6 @@ ui <- page_fillable(
                                  "derechos de propiedad intelectual",
                                  "restringido", 
                                  "otras restricciones-limitaciones no listadas")),
-         # textInput("nombre_organizacion", "Nombre de la organización"),
          textInput("correo_contacto", "Correo electrónico de contacto"),
          textInput("fecha_metadatos", "Fecha de los metadatos"),
          textInput("notas", "Notas u observaciones", value = "no aplica"),
@@ -130,14 +129,14 @@ _la_elaboracion_de_Metadatos_Geograficos.pdf).")
 
 card(card_header("Diccionario de datos"),
      p("Por favor completa la información acerca de las variables del conjunto"),
-     uiOutput("dictionary_inputs"),  # Placeholder for dynamic input fields
+     uiOutput("entradas_diccionario"),  # Marcador de posicion para campos dinamicos
 ),
 
 card(card_header("Metadatos"), 
      p("Aquí puedes ir viendo cómo quedará tu archivo de metadatos"),
-     verbatimTextOutput("generated_text"),  # Display final text with user input
+     verbatimTextOutput("texto_generado"),  # Muestra el texto final con lo ingresado por la usuaria
      
-     downloadButton("save_text", "Guardar metadatos (.txt)")  # Button to save text as .txt
+     downloadButton("guardar_texto", "Guardar metadatos (.txt)")  # Boton para guardar metadatos en formato .txt
 ),
 col_widths = c(3, 3, 6)
   )
