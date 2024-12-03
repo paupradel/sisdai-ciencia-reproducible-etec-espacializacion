@@ -1,5 +1,6 @@
 # Ignorar checkpoints de Jupyter
 **/.ipynb_checkpoints/
+.ipynb_checkpoints/
 
 # Ignorar todos los archivos de salida generados
 *.pyc
@@ -10,3 +11,36 @@
 __pycache__/
 .cache/
 .cython/
+
+# ambientes virtuales
+venv/
+env/
+ENV/
+*.pyc
+__pycache__/
+.env 
+
+# archivos config
+.DS_Store
+Thumbs.db
+
+# logs
+*.log
+*.sqlite3
+
+# config IDEs
+.vscode/
+.idea/
+
+# dependencias
+node_modules/
+package-lock.json
+yarn.lock
+
+# archivos temporales
+*.tmp
+*.temp
+tmp/
+
+# config git
+.gitconfig
