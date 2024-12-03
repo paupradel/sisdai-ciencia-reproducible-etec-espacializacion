@@ -1,9 +1,5 @@
 #-*- coding: utf-8 -*-
 """
-Created on Mon Apr 18 08:53:41 2022
-
-@author: searcampuzanob@gmail.com
-
 --- Aplicación que despliega una interfaz que tiene como finalidad generar fichas de
     metadatos según la Norma Técnica para la elaboración de Metadatos geográficos (NTMG).
     Las salidas que se obtienen son fichas de metadatos por medio de archivos de texto en formato txt.---
@@ -28,7 +24,7 @@ from osgeo import ogr
 
 def open_file():
     print("\n\n##################################################################################\n\n")
-    filename = askopenfilename(initialdir="/home/sear/Documentos/tarjetas/130422-interfazMetadatos",
+    filename = askopenfilename(initialdir="~",
     title="Choose a file, .gpkg", filetypes=(("gpkg files", "*.gpkg"), ("all files", "*.*")))
     global df, registros, sistemaReferencia, formato, nombreArchivo, extent, campos, sizefile, num_campos #, geometria
     print("filename -->", filename)
