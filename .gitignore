@@ -1,7 +1,7 @@
 #### Generales ####
 # datos originales y datos procesados
-#datos/datos-originales/
-#datos/datos-procesados/
+datos/datos-originales/
+datos/datos-procesados/
 
 #### relacionados a R ####
 # History files
