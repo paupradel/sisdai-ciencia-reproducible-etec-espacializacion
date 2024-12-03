@@ -1,0 +1,12 @@
+# Ignorar checkpoints de Jupyter
+**/.ipynb_checkpoints/
+
+# Ignorar todos los archivos de salida generados
+*.pyc
+*.pyo
+*.ipynb_checkpoints
+
+# carpetas de cache
+__pycache__/
+.cache/
+.cython/

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>metadato_{{ nombreArchivo }}</title>
+    <link rel="icon"
+        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACKFBMVEUAAAD////////////////////////////////////////////////9/f7+/v7////////////v8PT////////////6+vz19vn////////////////////////////////////////////////////////////////////////////////////8/f3////////////////29/n+/v7////////////+///////Y3Obd4OiQm7aapb3Q1eDR1uHJz9wtQ3VGWoYwRnc5TX0zSHk0SXrAx9bn6e/4+ftgcJcxRnhjc5lqep6TnriCj614hqdre54cM2poeJz9/v6xucxIXIhRY41/jKtWaJBQY41BVYNpeZ1JXIiPm7bh5OwlPHBFWIWfqcA/U4F2hKV8iqp3hqZwf6FKXYmHlLFAVIIqQXTl5+7Y3OVbbJSIlLE3THxzgqNufaCJlbGFkq9+jKs9UoCapL08UH+wuMt6iKgWLmaPmrWMmLRtfJ99i6pQYowgOG2/xdVLXomEka5mdptzgqRWZ5CMmLNMX4q1vc61vc8bMmqBjqx3haZnd5yNmbQ4THx4hqYULGXT2OJTZY50g6RkdJl/jat0gqRwf6I6Tn5ygaPq7fKttsoNJmFSZI5GWYZhcZg+UoEXMGfd4elEWIVDV4Sstclod5ycp74cNGuYo7zl6O5HW4dOYYtUZo8TLGRrep7x8/artMh8iam3v9Do6vD///9L4pTHAAAAOXRSTlMAAAZDouD4+eGlRhWM7O6QGKv+sASS6u1JoKjd5Pb79/zeoalF6+5LBY6UFq3+shkXj+3vk6bj+gdFXiLgAAAAAWJLR0QB/wIt3gAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+cCGxIgFd22tTMAAAEXSURBVBjTY2BgYGRiZmFlY+fg5GJiZAByGbl5eC2trG1s7fj4BRgZGRi5BYXsHRydnF1c3dyFBRgZRHg8PL28fXz9/AMCg4JFmRiYxUJCw8IjIqO8faJjYsUlGCTj4hMSk5JTUtPSMzKzsqUYpHNy8/ILCouK/UtKy8orZBhkK6uqC2tia6Pr/OuDGirlGOQbPcObSpoLW4pb29o7OhUYFLu6M7x7esP9+vonTJxkLcOgNHnK1Ohp02fMLJ7lFz17jjKDiurcecWF8xcsXJTcvDhNTZ1BQ3OJ/9Jly1esbO1btXqNFhMDo7aO7sS16+LXb2jZuEZPH+gXRgNDo02bt2zt32Zsos8I9i8Tl6mZuZyMlIQFkAsAFClQfKRUOJQAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjMtMDItMjdUMTg6MzI6MjErMDA6MDDW3C0fAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIzLTAyLTI3VDE4OjMyOjIxKzAwOjAwp4GVowAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyMy0wMi0yN1QxODozMToyMSswMDowMBujD38AAABXelRYdFJhdyBwcm9maWxlIHR5cGUgaXB0YwAAeJzj8gwIcVYoKMpPy8xJ5VIAAyMLLmMLEyMTS5MUAxMgRIA0w2QDI7NUIMvY1MjEzMQcxAfLgEigSi4A6hcRdPJCNZUAAAAASUVORK5CYII="
+        type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body,
+        html {
+            margin: 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .wrapper {
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+            max-width: 1080px;
+            min-width: 200px;
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .wrapper .header {
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 3rem;
+        }
+
+        .wrapper .header .logos {
+            margin-bottom: 1rem;
+        }
+
+        .wrapper .header .logos img {
+            height: 50px;
+        }
+
+        .wrapper .header p {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        section h2 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: white;
+            background-color: #521D00;
+            line-height: 1.5;
+            text-align: center;
+            margin: 0 0;
+            padding: 1rem 0;
+        }
+
+        section .table-container {
+            overflow-x: auto;
+            max-width: 100%;
+        }
+
+        section table {
+            border-bottom: 0.5px solid #521d00a1;
+            border-top: 0.5px solid #521d00a1;
+            width: 100%;
+            border-spacing: 0;
+        }
+
+        section table col:first-child {
+            width: 35%;
+        }
+
+        section table col:nth-child(2) {
+            width: 65%;
+        }
+
+        section table tr:nth-child(odd) {
+            background-color: #E6E6E6;
+        }
+
+        section table tr:nth-child(even) {
+            background-color: white;
+        }
+
+        section table td,
+        section table th {
+            border-left: 0.5px solid #521d00a1;
+            border-right: 0;
+            padding: 0.6rem 1rem;
+            line-height: 1.2;
+        }
+
+        section table td:last-child {
+            border-right: 0.5px solid #521d00a1;
+        }
+
+
+        section.campos h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: black;
+            background-color: transparent;
+            font-size: 1.4;
+            font-weight: 500;
+        }
+
+        section.campos table th {
+            background-color: #521D00;
+            color: white;
+            text-align: left;
+            font-weight: 500;
+
+        }
+        section>hr:first-child{
+            margin-block-end: 2rem;
+        }
+        section>hr:last-child{
+            margin-block-start: 2rem;
+        }
+    </style>
+
+</head>
+
+<body style>
+
+    <main class="wrapper">
+        <div class="header">
+            <div class="logos">
+                <img src="https://cdn.conacyt.mx/gema/conahcyt-gema.svg" alt="">
+            </div>
+            <p>Metadato estructurado conforme a la Norma Técnica Mexicana para la Elaboración de Metadatos Geográficos
+            </p>
+            <h1>{{ titulo_dataset }}</h1>
+        </div>
+
+
+
+        <section>
+            <h2>SECCIÓN 1. Identificación del conjunto de datos espaciales o producto</h2>
+            <div class="table-container">
+                <table>
+
+                    <colgroup>
+                        <col span="1">
+                        <col span="1">
+                    </colgroup>
+                    <tbody>
+                        <td colspan="2"><b>Subsección 1.1. Identificación del conjunto de datos espaciales o producto.</b></td>
+                        <tr>
+                            <td><b>Ecosistema Nacional Informatico (ENI)</b></td>
+                            <td>{{ pronacE }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Capítulo ENI</b></td>
+                            <td>{{ enI }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Subcapítulo ENI</b></td>
+                            <td>{{ sub_eni }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Título del conjunto de datos espaciales o producto</b></td>
+                            <td>{{ titulo_dataset }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Descripción del conjunto de datos espaciales o producto</b></td>
+                            <td>{{ descripcioN }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Nombre de archivo</b></td>
+                            <td>{{ nombreArchivo }}</td>
+                        </tr>
+                        <td colspan="2"><b>Subsección 1.2. Enfoque específico del conjunto de datos o producto.</b></td>
+                        <tr>
+                            <td><b>Propósito y uso específico</b></td>
+                            <td>{{ propositO }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Tema principal del conjunto de datos espaciales o producto</b></td>
+                            <td>{{ temA }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Grupo de datos del conjunto de datos espaciales o producto</b></td>
+                            <td>{{ grupO }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Palabras clave</b></td>
+                            <td>{{ palabras_clave }}</td>
+                        </tr>
+                        <td colspan="2"><b>Subsección 1.3. Parámetros del conjunto de datos o producto.</b></td>
+                        <tr>
+                            <td><b>Idioma del conjunto de datos espaciales o producto</b></td>
+                            <td>{{ idiomA }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Forma de presentación de los datos espaciales</b></td>
+                            <td>{{ forma_representacion }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>URL del recurso</b></td>
+                            <td>{{ urL }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Frecuencia de mantenimiento y actualización</b></td>
+                            <td>{{ perioricidaD }}</td>
+                        </tr>
+                        <!-- <tr>
+                            <td><b>Uso específico</b></td>
+                            <td>{{ uso_especifico }}</td>
+                        </tr> -->
+                        <tr>
+                            <td><b>Codificación</b></td>
+                            <td>{{ codificacioN }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Estructura de Datos</b></td>
+                            <td>{{ estructura_datos }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Tipo de geometría</b></td>
+                            <td>{{ tipo_geometria }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Tamaño de archivo</b></td>
+                            <td>{{ sizefile }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Formato</b></td>
+                            <td>{{ formato }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <section>
+            <h2>SECCIÓN 2. Fechas relacionadas con el conjunto de datos espaciales o productos</h2>
+            <div class="table-container">
+                <table>
+                    <colgroup>
+                        <col span="1">
+                        <col span="1">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td><b>Fecha de referencia del conjunto de datos espaciales o producto</b></td>
+                            <td>{{ fecha_ref }}</td>
+                        </tr>
+
+                        <tr>
+                            <td><b>Tipo de fecha</b></td>
+                            <td>{{ tipo_fecha }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Fecha de creación de los insumos</b></td>
+                            <td>{{ fecha_generacion }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Nombre del insumo</b></td>
+                            <td>{{ nombre_insumo }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section>
+            <h2>SECCIÓN 3. Unidad del estado responsable del conjunto de datos espaciales o productos</h2>
+            <div class="table-container">
+                <table>
+                    <colgroup>
+                        <col span="1">
+                        <col span="1">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td><b>Nombre de la organización</b></td>
+                            <td>{{ nombre_organizacion }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Enlace en línea</b></td>
+                            <td>{{ enlace_en_linea }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2>SECCIÓN 4. Localización geográfica del conjunto de datos espaciales o productos </h2>
+            <div class="table-container">
+                <table>
+                    <colgroup>
+                        <col span="1">
+                        <col span="1">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td><b>Coordenadas máximas y mínimas</b></td>
+                            <td>{{ extent }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section>
+            <h2>SECCIÓN 5. Sistema de referencia </h2>
+            <div class="table-container">
+                <table>
+                    <colgroup>
+                        <col span="1">
+                        <col span="1">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td><b>Unidades de coordenadas</b></td>
+                            <td>{{ unidadeS }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Sistema de referencia de coordenadas</b></td>
+                            <td>{{ sistemaReferencia }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2>SECCIÓN 6. Calidad de la información(linaje)</h2>
+            <div class="table-container">
+                <table>
+                    <colgroup>
+                        <col span="1">
+                        <col span="1">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td><b>Linaje</b></td>
+                            <td>{{ linajE }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Pasos del proceso</b></td>
+                            <td>{{ pasos_proceso }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Responsable de la estructuración del conjunto de datos</b></td>
+                            <td>{{ reponsable_estructuracion }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Fuente</b></td>
+                            <td>{{ fuentE }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2>SECCIÓN 7. Entidades y atributos</h2>
+            <div class="table-container">
+                <table>
+                    <colgroup>
+                        <col span="1">
+                        <col span="1">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td><b>Detalle de entidades y atributos</b></td>
+                            <td>{{ detalle_ent_atrib }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2>SECCIÓN 8. Distribución </h2>
+            <div class="table-container">
+                <table>
+                    <colgroup>
+                        <col span="1">
+                        <col span="1">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td><b>Tipo de licenciamiento</b></td>
+                            <td>{{ tipo_licenciamiento }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2>SECCIÓN 9. Información del contacto para los metadatos</h2>
+            <div class="table-container">
+                <table>
+                    <colgroup>
+                        <col span="1">
+                        <col span="1">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td><b>Nombre de la organización</b></td>
+                            <td>{{ autor_metadato }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Correo electrónico de contacto</b></td>
+                            <td>{{ email_contacto }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Fecha de los metadatos</b></td>
+                            <td>{{ fecha_de_metadatos }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <section>
+            <hr>
+            <div class="table-container">
+                <table>
+                    <colgroup>
+                        <col span="1">
+                        <col span="1">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td><b>Notas u observaciones</b></td>
+                            <td>{{ notaS }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr>
+        </section>
+
+        <section class="campos">
+            <h2>DICCIONARIO DE CAMPOS O VARIABLES</h2>
+            <div class="table-container">
+                <table>
+                    <colgroup>
+                        <col span="1">
+                        <col span="1">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for  i in campos_descr %}
+                		    <tr>
+ 					    	    <td><b>{{i.campos}}</b></td>
+ 					    	    <td>{{i.descr}}</td>     	
+                		    </tr>
+ 					    {% endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
