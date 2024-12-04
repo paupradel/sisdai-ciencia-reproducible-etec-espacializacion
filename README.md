@@ -12,7 +12,70 @@ La sección de procesamiento está dividida en dos apartados diferentes. Existe 
 
 
 ## Requerimientos / Dependencias
+
 ### `python`
+
+Esta carpeta contiene dos proyectos principales:
+
+1. **Generación de metadatos**: Una herramienta para crear fichas de metadatos conforme a la normativa técnica.
+2. **Funciones para preprocesamiento**: Un conjunto de funciones diseñadas para realizar diversos preprocesamientos en capas geoespaciales.
+
+## 🛠️ Requisitos
+
+Para ejecutar estos proyectos y procesamientos, es necesario contar con las siguientes herramientas:
+
+* [Python 3.13](https://www.python.org/downloads/)
+* [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) (opcional, pero recomendado)
+* [gdal](https://gdal.org/download.html)
+* [geopandas](https://geopandas.org/install.html)
+* [tkinter](https://docs.python.org/3/library/tkinter.html)
+
+Para utilizar la aplicación, es necesario configurar un entorno virtual. A continuación, te presentamos dos opciones para hacerlo. Recomendamos ampliamente la primera opción, ya que simplifica la instalación de dependencias.
+
+### 🚀 Opción 1: Crear un entorno con **Conda**
+
+1. **Ubícate en la carpeta raíz del proyecto** (`sisdai-etec-espacializacion`), donde se encuentra el archivo `environment.yml`.
+2. **Ejecuta el siguiente comando** para crear el entorno:
+
+```bash
+conda env create -f environment.yml
+```
+
+Esto generará un entorno llamado `proyectos_geo` con todas las dependencias necesarias.
+
+ 3. **Activa el entorno** utilizando el siguiente comando:
+
+```bash
+conda activate proyectos_geo
+```
+
+### 🚀 Opción 2: Crear un entorno virtual con Pip
+
+Si prefieres no usar **Conda**, puedes optar por Pip. Sin embargo, debido a la complejidad de instalar la dependencia `gdal`, recomendamos seguir estos pasos cuidadosamente:
+
+ 1. Instala `gdal` con el siguiente comando (requiere conda para gestionar esta dependencia específica):
+
+```bash
+conda install conda-forge::gdal
+```
+
+ 2. **Generar un ambiente virtual** con Python 3.13.0.
+
+```bash
+python3 -m venv env
+source env/bin/activate  # En Linux/Mac
+env\Scripts\activate     # En Windows
+```
+
+ 3. Instala las dependencias especificadas en el archivo requirements.txt:
+
+```bash
+pip install -r requirements.txt
+```
+
+🔎 Nota adicional
+
+Si encuentras problemas al instalar las dependencias, asegúrate de que tu sistema tiene las herramientas necesarias para compilar bibliotecas geoespaciales (por ejemplo, compiladores o paquetes adicionales). Para personas usuarias de Windows, puede ser útil instalar OSGeo4W o herramientas similares.
 
 ### `R`
 
@@ -34,25 +97,35 @@ También recomendamos instalar el IDE [Rstudio](https://www.rstudio.com/categori
 
 ## Estructura del repositorio
 ```
-/espacializacion
-├── README
-├── datos
-│   ├── datos-auxiliares
-│   ├── datos-originales
-│   └── datos-procesados
-├── procesamiento
-│   ├── python
-│   │   ├── cuadernos
-│   │   └── modulos
-│   └── R
-└── .gitignore
+SISDAI-ETEC-ESPACIALIZACION/
+├── datos/
+│   ├── datos-auxiliares/
+│   ├── datos-originales/
+│   ├── datos-procesados/
+│   │   └── .gitkeep
+├── procesamiento/
+│   ├── python/
+│   │   ├── cuadernos/
+│   │   └── modulos/
+│   │       ├── generador_metadatos/
+│   │       └── preprocesos_capas/
+│   └── .gitkeep
+├── R/
+├── .gitignore
+├── .here
+├── environment.yml
+├── README.md
+├── requirements.txt
 ```
 
 ## Instrucciones
-### Genral
+### General
 Para algunos de los ejemplos que presentamos aquí, utilizamos capas descargadas desde el [portal de Gema](gema.conahcyt.mx). Por conveniencia, en la carpeta de `datos/datos_auxiliares` de este repositorio incluimos las capas de división estatal (la cual se generó con base en el marco geoestadístico del INEGI 2020) y la división municipal  (la cual se generó con base en el marco geoestadístico del INEGI 2023). Recuerda que en Gema puedes encontrar más de 500 capas de información geográfica para complementar tus análisis.
 
 ### `python`
+
+
+
 
 ### `R`
 En el apartado de `R` encontrarás ejemplos en formato quarto que puedes seguir para elaborar diferentes tipos de capas según los datos con los que cuentes.
