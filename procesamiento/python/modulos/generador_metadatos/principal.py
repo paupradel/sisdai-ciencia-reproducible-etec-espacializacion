@@ -25,7 +25,9 @@ from osgeo import ogr
 def open_file():
     print("\n\n##################################################################################\n\n")
     filename = askopenfilename(initialdir="~",
-    title="Choose a file, .gpkg", filetypes=(("gpkg files", "*.gpkg"), ("all files", "*.*")))
+        title="Choose a file",
+        filetypes=(("all files", "*.*"), ("gpkg files", "*.gpkg"))
+    )
     global df, registros, sistemaReferencia, formato, nombreArchivo, extent, campos, sizefile, num_campos #, geometria
     print("filename -->", filename)
     sizefile = str(round(os.stat(filename).st_size/1000000, 2)) + " Mb"
@@ -751,22 +753,32 @@ tituloCaja32 = Entry(second_frame, textvariable=notas,
             #### Botones ####
 ##################################################################################
 
+# Botón de Búsqueda
 img_1 = PhotoImage(file="images/browse_img.png")
-img_label_1 = Label(image=img_1)
-browse_btn = Button(second_frame, image= img_1, borderwidth=0, command=lambda:open_file()).grid(row=60, column=0, sticky='W')
-etiqueta39= Label(second_frame, font=('montserrat', 10, 'bold'), text='Búsqueda                                                      ').grid(row=61, column=0)
+browse_btn = Button(second_frame, image=img_1, borderwidth=0, command=lambda: open_file())
+browse_btn.grid(row=60, column=0, sticky='W', padx=10, pady=5)
 
+etiqueta39 = Label(second_frame, font=('montserrat', 10, 'bold'), text='Búsqueda')
+etiqueta39.grid(row=61, column=0, sticky='W', padx=10)
+
+# Botón de Generar
 img_2 = PhotoImage(file="images/txt_file1.png")
-img_label_2 = Label(image=img_2)
-html_btn = Button(second_frame, image= img_2, borderwidth=0, command=lambda: generar_txt()).grid(row=60, column=2, sticky='W')
-etiqueta40= Label(second_frame, font=('montserrat', 10, 'bold'), text='Genera                                                                                                                                                             ').grid(row=61, column=2)
+html_btn = Button(second_frame, image=img_2, borderwidth=0, command=lambda: generar_txt())
+html_btn.grid(row=60, column=1, sticky='W', padx=10, pady=5)
 
-space9 = Label((second_frame), text="                    ").grid(row=40, column=2)
+etiqueta40 = Label(second_frame, font=('montserrat', 10, 'bold'), text='Genera')
+etiqueta40.grid(row=61, column=1, sticky='W', padx=10)
 
-img_3= PhotoImage(file="images/salida_img.png")
-img_label_3 = Label(image=img_3)
-salida_btn = Button(second_frame, image= img_3, borderwidth=0, command=ventana.destroy).grid(row=62, column=2, sticky='W')
-etiqueta40= Label(second_frame, font=('montserrat', 10, 'bold'), text='Salir                                                                                                                                                              ').grid(row=63, column=2)
+space9 = Label(second_frame, text=" ")
+space9.grid(row=62, column=0)
+
+# Botón de Salir
+img_3 = PhotoImage(file="images/salida_img.png")
+salida_btn = Button(second_frame, image=img_3, borderwidth=0, command=ventana.destroy)
+salida_btn.grid(row=60, column=2, sticky='W', padx=10, pady=5)
+
+etiqueta41 = Label(second_frame, font=('montserrat', 10, 'bold'), text='Salir')
+etiqueta41.grid(row=61, column=2, sticky='W', padx=10)
 
 ##################################################################################
 
