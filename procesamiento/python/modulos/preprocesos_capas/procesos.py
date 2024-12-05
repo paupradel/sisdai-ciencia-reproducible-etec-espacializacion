@@ -3,6 +3,7 @@ import geopandas as gpd
 import numpy as np
 from shapely.geometry import Point
 from rich.console import Console
+from tabulate import tabulate
 
 def info_capa(capa: pd.DataFrame):
     """Proporciona información básica sobre un DataFrame.
@@ -38,7 +39,7 @@ def crea_gid(capa: pd.DataFrame) -> pd.DataFrame:
 
     return capa
 
-def generar_capa_puntos(capa: pd.DataFrame, c_long: str, c_lat: str) -> gpd.GeoDataFrame:
+def generar_puntos(capa: pd.DataFrame, c_long: str, c_lat: str) -> gpd.GeoDataFrame:
     """Espacializa un DataFrame con columnas de latitud y longitud, generando una GeoDataFrame de puntos.
 
     Parámetros:
@@ -154,34 +155,47 @@ def completar_claves(df: pd.DataFrame, columna: str, n_clave: int) -> pd.DataFra
     df[columna] = df[columna].apply(lambda x: str(x).zfill(n_clave))
     return df
 
-def concatenar_claves_mun(df: pd.DataFrame, lugar: int) -> pd.DataFrame:
+def generar_cvegeomun(df: pd.DataFrame, posicion_col: int) -> pd.DataFrame:
     """
     Concatena las claves de entidad y municipio en un DataFrame para formar una nueva columna 'cvegeomun'.
-    El parámetro de número entero funciona para determinar en que lugar de la lisa de campos
-    del dataframe se posicionará el nuevo campo 'cvegeomun'.
+    La nueva columna se ubicará en la posición especificada por `posicion_col`.
 
     Parámetros:
-    df -- DataFrame que contiene las columnas 'cve_ent' y 'cve_mun' a concatenar.
-    lugar -- Lugar de la lisa de campos (partiendo de cero) del dataframe en donde se 
-            posicionará el nuevo campo 'cvegeomun'.
+    ----------
+    df : pd.DataFrame
+        DataFrame que contiene las columnas 'cve_ent' y 'cve_mun' a concatenar.
+    posicion_col : int
+        Posición (base 0) en la lista de columnas donde se ubicará la nueva columna 'cvegeomun'.
 
     Retorna:
-    df -- DataFrame con la nueva columna 'cvegeomun' que contiene la clave de entidad y municipio concatenada.
-    
+    --------
+    pd.DataFrame
+        DataFrame con la nueva columna 'cvegeomun' añadida en la posición deseada.
+
     Ejemplo:
-        df = concatenar_claves_mun(df, 5)
+    --------
+        df = concatenar_claves_mun(df, posicion_col=5)
     """
-
     # Validaciones
-    assert isinstance(df, pd.DataFrame), "El parámetro debe ser un DataFrame."
-    assert 'cve_ent' in df.columns, "El DataFrame debe contener una columna 'cve_ent'."
-    assert 'cve_mun' in df.columns, "El DataFrame debe contener una columna 'cve_mun'."
-    assert isinstance(lugar, int), "El número de caracteres debe ser un entero."
+    if not isinstance(df, pd.DataFrame):
+        raise ValueError("El parámetro 'df' debe ser un DataFrame.")
+    if 'cve_ent' not in df.columns:
+        raise ValueError("El DataFrame debe contener una columna 'cve_ent'.")
+    if 'cve_mun' not in df.columns:
+        raise ValueError("El DataFrame debe contener una columna 'cve_mun'.")
+    if not isinstance(posicion_col, int):
+        raise ValueError("El parámetro 'posicion_col' debe ser un entero.")
+    if not 0 <= posicion_col <= len(df.columns):
+        raise IndexError(f"La posición {posicion_col} está fuera del rango de columnas (0-{len(df.columns)}).")
 
+    nueva_columna = df['cve_ent'].str.zfill(2) + df['cve_mun'].str.zfill(3)
+
+    # insertar la nueva columna en la posición deseada
     columnas = list(df.columns)
-    columnas.insert(lugar, "cvegeomun")
-    df['cvegeomun'] = df.apply(lambda row: row['cve_ent'].zfill(2) + row['cve_mun'].zfill(3), axis=1)
-    df=df.reindex(columns=columnas)
+    columnas.insert(posicion_col, 'cvegeomun')  
+
+    df = df.assign(cvegeomun=nueva_columna)  
+    df = df[columnas]  
     return df
 
 def renombrar_columnas(df: pd.DataFrame, dicc: dict) -> pd.DataFrame:
@@ -233,6 +247,39 @@ def reordenar_columnas(df: pd.DataFrame, lista: list) -> pd.DataFrame:
 
     df = df.reindex(columns=lista)
     return df
+
+def mover_columnas(df: pd.DataFrame, al_inicio: list = None, al_final: list = None) -> pd.DataFrame:
+    """
+    Reordena columnas moviendo un subconjunto específico al inicio o al final.
+
+    Parámetros:
+    ----------
+    df : pd.DataFrame
+        DataFrame original.
+    al_inicio : list, opcional
+        Lista de columnas que deben moverse al inicio.
+    al_final : list, opcional
+        Lista de columnas que deben moverse al final.
+
+    Retorna:
+    --------
+    pd.DataFrame
+        DataFrame con las columnas reordenadas.
+    """
+    al_inicio = al_inicio or []
+    al_final = al_final or []
+
+    # Validar que las columnas especificadas estén en el DataFrame
+    al_inicio = [col for col in al_inicio if col in df.columns]
+    al_final = [col for col in al_final if col in df.columns]
+
+    # Determinar el resto de las columnas
+    resto = [col for col in df.columns if col not in al_inicio + al_final]
+
+    # Reordenar las columnas
+    nuevo_orden = al_inicio + resto + al_final
+    return df[nuevo_orden]
+
 
 def convertir_columna_texto(df: pd.DataFrame, columna: str) -> pd.DataFrame:
     """
@@ -302,33 +349,47 @@ def convertir_columna_real(df: pd.DataFrame, columna: str) -> pd.DataFrame:
 
 def identificar_nulos(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Identifica los valores nulos de un DataFrame.
+    Identifica los valores nulos de un DataFrame y los presenta en formato tabular.
 
     Parámetros:
-    df -- DataFrame al que se le identificarán los valores nulos.
+    ----------
+    df : pd.DataFrame
+        DataFrame al que se le identificarán los valores nulos.
 
     Retorna:
-    df_nulos -- DataFrame con los registros que tienen al menos un valor nulo.
-    Si no hay nulos, retorna None.
+    --------
+    pd.DataFrame
+        DataFrame con los registros que tienen al menos un valor nulo.
+        Si no hay nulos, retorna None.
     """
-
     # Validaciones
     assert isinstance(df, pd.DataFrame), "El parámetro debe ser un DataFrame."
 
-    # Calcular el total de nulos
     total_nulos = df.isnull().sum().sum()
 
     if total_nulos == 0:
         print("No hay nulos en el DataFrame.")
         return None
     else:
-        print(f"Total de nulos en el DataFrame: {total_nulos}")
-        print("\nNúmero de nulos por columna:\n", df.isnull().sum())
+        print(f"Total de nulos en el DataFrame: {total_nulos}\n")
         
-        df_nulos = df[df.isnull().any(axis=1)] #filtrar los registros con -al menos- 1 nulo
+        # Crear un df resumen de los nulos por columna
+        nulos_por_columna = df.isnull().sum()
+        nulos_resumen = pd.DataFrame({
+            "Columna": nulos_por_columna.index,
+            "Nulos": nulos_por_columna.values,
+            "Porcentaje": (nulos_por_columna / len(df) * 100).round(2)
+        })
+        
+        nulos_resumen = nulos_resumen[nulos_resumen["Nulos"] > 0]
+        
+        print("Resumen de nulos por columna:\n")
+        print(tabulate(nulos_resumen, headers="keys", tablefmt="pretty", showindex=False))
+        
+        df_nulos = df[df.isnull().any(axis=1)]
         
         columnas_con_nulos = df.columns[df.isnull().any()].tolist()
-        print("\nColumnas con valores nulos:", columnas_con_nulos)
+        print("\nColumnas con valores nulos:", ", ".join(columnas_con_nulos))
         
         return df_nulos
     
