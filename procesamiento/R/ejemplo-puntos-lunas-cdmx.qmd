@@ -25,14 +25,13 @@ library(here)
 ## Carga de datos
 ```{r}
 # Lectura de datos desde el portal de datos abiertos CdMx
-
 lunas <- read_csv("https://datos.cdmx.gob.mx/dataset/5a8373a7-cf04-4146-b5cd-b727f0264df2/resource/f7e1be67-ae1b-43e7-aa31-057a6560abd1/download/lunas-cdmx.csv")
 
 ```
 
 
 ```{r}
-# Carga de datos geográficos
+# Carga de datos geograficos
 municipal <- st_read(here("datos","datos-auxiliares", "gref_division_municipal_23_mun_a.gpkg"))
 
 ```
@@ -49,7 +48,7 @@ Podemos ver que los datos vienen organizados de forma hay un registro por cada L
 
 El siguiente paso es evaluar la completitud de los datos
 ```{r}
-# complete cases para identificar cuántas y cuáles filas (registros) tienen información en todas las columnas
+# "complete.cases" para identificar cuántas y cuáles filas (registros) tienen informacion en todas las columnas
 sum(complete.cases(lunas)) 
 ```  
 Hay únicamente `{r} sum(complete.cases(lunas))` registros con datos en todas las columnas. Sin embargo, en este caso, nos interesan únicamente el nombre del centro de atención y la información de las coordenadas.
@@ -123,6 +122,6 @@ ggplot() +
 
 Finalmente guardamos la capa utilizando la nomenclatura establecida en el proceso ETEC.
 ```{r}
-#write_sf(lunas_espacial, "datos/datos-procesados/sehu_lunascdmx_180123_xy_p.gpkg")
+write_sf(lunas_espacial, here("datos", "datos-procesados", "sehu_lunascdmx_180123_xy_p.gpkg"))
 
 ```
