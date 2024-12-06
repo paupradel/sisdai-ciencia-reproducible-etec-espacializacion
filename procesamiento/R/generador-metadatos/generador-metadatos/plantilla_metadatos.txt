@@ -1,0 +1,58 @@
+Metadato estructurado conforme a la Norma Técnica Mexicana para la Elaboración de Metadatos Geográficos 
+* SECCIÓN 1. Identificación del conjunto de datos espaciales o producto 
+* SUBSECCIÓN 1.1. Identificación del conjunto de datos espaciales o producto
+- Ecosistema Nacional Informático (ENI): 
+- Capítulo ENI: 
+- Subcapítulo ENI: 
+- Título del conjunto de datos espaciales o producto: 
+- Descripción del conjunto de datos espaciales o producto: 
+- Nombre de archivo: 
+* SUBSECCIÓN 1.2. Enfoque específico del conjunto de datos o producto
+- Propósito y uso específico: 
+- Tema principal del conjunto de datos espaciales o producto: 
+- Grupo de datos del conjunto de datos espaciales o producto: 
+- Palabras clave: 
+* SUBSECCIÓN 1.3. Parámetros del conjunto de datos o producto
+- Idioma del conjunto de datos espaciales o producto: 
+- Forma de presentación de los datos espaciales: 
+- URL del recurso: 
+- Frecuencia de mantenimiento y actualización: 
+- Codificación: 
+- Estructura de datos: 
+- Tipo de geometría: 
+- Tamaño de archivo: 
+- Formato: 
+* SECCIÓN 2. Fechas relacionadas con el conjunto de datos espaciales o productos 
+- Fecha de referencia del conjunto de datos espaciales o producto: 
+- Tipo de fecha: 
+- Fecha de creación de los insumos: 
+- Nombre del insumo: 
+                                    
+* SECCIÓN 3. Unidad del estado responsable del conjunto de datos espaciales o productos 
+- Nombre de la organización: 
+- Enlace en línea: 
+* SECCIÓN 4. Localización geográfica del conjunto de datos espaciales o productos 
+- Coordenadas máximas y mínimas: 
+* SECCIÓN 5. Sistema de referencia 
+- Unidades de coordenadas: 
+- Sistema de referencia de coordenadas: 
+* SECCIÓN 6. Calidad de la información (linaje) 
+- Linaje: 
+- Pasos del proceso: 
+- Responsable de la estructuración del conjunto de datos: 
+- Fuente: 
+* SECCIÓN 7. Entidades y atributos 
+- Detalle de entidades y atributos: 
+* SECCIÓN 8. Distribución 
+- Tipo de licenciamiento: 
+* SECCIÓN 9. Información del contacto para los metadatos 
+- Nombre de la organización: 
+- Correo electrónico de contacto: 
+- Fecha de los metadatos: 
+################################################################ 
+Notas u observaciones:                                                                          
+################################################################ 
+--------------------------------------------
+DICCIONARIO DE CAMPOS O VARIABLES
+campo: 
+descripción: 
