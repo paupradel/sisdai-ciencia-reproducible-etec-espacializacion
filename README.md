@@ -132,14 +132,25 @@ SISDAI-ETEC-ESPACIALIZACION/
 ```
 
 ## Instrucciones
+
 ### General
-Para algunos de los ejemplos que presentamos aquí, utilizamos capas descargadas desde el [portal de Gema](gema.conahcyt.mx). Por conveniencia, en la carpeta de `datos/datos_auxiliares` de este repositorio incluimos las capas de división estatal (la cual se generó con base en el marco geoestadístico del INEGI 2020) y la división municipal  (la cual se generó con base en el marco geoestadístico del INEGI 2023). Recuerda que en Gema puedes encontrar más de 500 capas de información geográfica para complementar tus análisis.
+Para algunos de los ejemplos que presentamos aquí, utilizamos capas descargadas desde el [portal de Gema](gema.conahcyt.mx). Por conveniencia, en la carpeta de `datos/datos_auxiliares` de este repositorio incluimos las capas de división estatal (la cual se generó con base en el marco geoestadístico del INEGI 2020) y la división municipal (la cual se generó con base en el marco geoestadístico del INEGI 2023). Recuerda que en Gema puedes encontrar más de 500 capas de información geográfica para complementar tus análisis.
 
 ### `python`
 
+En el apartado de ``python`` se encuentran dos proyectos principales, cada uno diseñado para facilitar tareas específicas de preprocesamiento y gestión de datos geoespaciales. Ambos incluyen un archivo README con instrucciones detalladas para su uso:
 
+**1. Generador de Metadatos**
 
+Ruta: ``procesamiento/python/modulos/generador_metadatos/``
+
+Esta herramienta permite generar metadatos estructurados para capas geoespaciales, siguiendo estándares definidos. Consulta el archivo README en esta ruta para obtener las instrucciones de instalación y uso.
+
+**2. Preprocesos para Capas**
+
+Ruta: ``procesamiento/python/modulos/preprocesos_capas/``
+
+Este módulo ofrece diversas herramientas de preprocesamiento para manipular y transformar capas de información geoespacial. El archivo README incluido en la ruta proporciona una guía paso a paso para aprovechar esta funcionalidad.
 
 ### `R`
 En el apartado de `R` encontrarás ejemplos en formato quarto que puedes seguir para elaborar diferentes tipos de capas según los datos con los que cuentes.
-
