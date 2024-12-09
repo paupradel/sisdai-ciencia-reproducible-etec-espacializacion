@@ -127,6 +127,7 @@ SISDAI-ETEC-ESPACIALIZACION/
 ├── .here
 ├── environment.yml
 ├── README.md
+├── requirements.in
 ├── requirements.txt
 ```
 
