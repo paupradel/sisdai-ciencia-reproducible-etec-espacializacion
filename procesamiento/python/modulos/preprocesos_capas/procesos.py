@@ -1,7 +1,7 @@
 import pandas as pd
 import geopandas as gpd
 import numpy as np
-from shapely.geometry import Point
+from shapely.geometry import Point, LineString, Polygon
 from rich.console import Console
 from tabulate import tabulate
 
