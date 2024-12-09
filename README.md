@@ -49,7 +49,7 @@ Esto generará un entorno llamado `proyectos_geo` con todas las dependencias nec
 conda activate proyectos_geo
 ```
 
-### 🚀 Opción 2: Crear un entorno virtual con Pip
+### 🚀 Opción 2: Crear un entorno virtual con Pip y Pip-tools
 
 Si prefieres no usar **Conda**, puedes optar por Pip. Sin embargo, debido a la complejidad de instalar la dependencia `gdal`, recomendamos seguir estos pasos cuidadosamente:
 
@@ -59,19 +59,31 @@ Si prefieres no usar **Conda**, puedes optar por Pip. Sin embargo, debido a la c
 conda install conda-forge::gdal
 ```
 
- 2. **Generar un ambiente virtual** con Python 3.13.0.
+ 2. **Generar un ambiente virtual con venv** con Python 3.13.0.
 
 ```bash
 python3 -m venv env
 source env/bin/activate  # En Linux/Mac
 env\Scripts\activate     # En Windows
 ```
-
- 3. Instala las dependencias especificadas en el archivo requirements.txt:
+3. Instala `pip-tools` en el entorno virtual:
 
 ```bash
-pip install -r requirements.txt
+pip install pip-tools==7.4.1
 ```
+
+4. Instala `gdal` con el siguiente comando (requiere conda para gestionar esta dependencia específica):
+
+```bash
+conda install conda-forge::gdal
+```
+
+5. Sincroniza e instala las dependencias listadas en el archivo `requirements.txt`:
+
+```bash
+pip-sync requirements.txt
+```
+
 
 🔎 Nota adicional
 

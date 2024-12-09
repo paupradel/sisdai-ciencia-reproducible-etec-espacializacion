@@ -1,0 +1,9 @@
+geopandas
+tk
+jinja2
+numpy
+pandas
+matplotlib
+openpyxl
+ipywidgets
+rich
