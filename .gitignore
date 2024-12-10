@@ -2,7 +2,7 @@
 # datos originales y datos procesados
 datos/datos-originales/
 datos/datos-procesados/
-
+*html
 #### relacionados a R ####
 # History files
 .Rhistory
