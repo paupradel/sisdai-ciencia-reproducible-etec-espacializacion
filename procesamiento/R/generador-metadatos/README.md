@@ -1,0 +1,7 @@
+# Generador de metadatos en `R`
+
+Esta es una herramienta para generar metadatos conforme a los lineamientos establecidos en los procesos ETEC, utilizando como base archivos en formato geopaquete o csv.  
+
+El generador está construido utilizando [shiny](https://shiny.posit.co/). Se compone de los dos códigos que están contenidos en esta carpeta. El archivo `ui.R` contiene el código de la interfaz de usuaria, mientras `server.R` lo correspondiente al servidor. Para correrlo en `RStudio` solo es necesario abrir cualquiera de los dos códigos y dar click en el botón `run App` que se encuentra arriba a la derecha. Esto va a cargar la aplicación de forma local.
+
+Para utilizarla, solo es necesario cargar un conjunto de datos y llenar la información que solicita la interfaz. En la columna de la izquierda podrás llenar información general del conjunto de datos, en la columna central la información correspondiente a cada variable, de forma que se genere el diccionario de datos, y en la columna derecha se irá actualizando una vista previa de el archivo `txt` de los metadatos. Cuando termines, hay un botón de descarga debajo de la vista previa, lo que te permitirá renombrar y guardar los metadatos.
