@@ -72,11 +72,13 @@ env\Scripts\activate     # En Windows
 pip install pip-tools==7.4.1
 ```
 
-4. Instala `gdal` con el siguiente comando (requiere conda para gestionar esta dependencia específica):
+4. Instala `gdal` con el siguiente comando (requiere **conda** para gestionar esta dependencia específica):
 
 ```bash
 conda install conda-forge::gdal
 ```
+
+⚠️ Si no quieres instalar `gdal` con **conda**, te debes asegurar que tengas instaldo `gdal` en tu equipo previamente, dependiendo de tu Sistema Operativo.
 
 5. Sincroniza e instala las dependencias listadas en el archivo `requirements.txt`:
 
