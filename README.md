@@ -53,11 +53,13 @@ conda activate proyectos_geo
 
 Si prefieres no usar **Conda**, puedes optar por Pip. Sin embargo, debido a la complejidad de instalar la dependencia `gdal`, recomendamos seguir estos pasos cuidadosamente:
 
- 1. Instala `gdal` con el siguiente comando (requiere conda para gestionar esta dependencia específica):
+ 1. Instala `gdal` con el siguiente comando (requiere **conda** para gestionar esta dependencia específica):
 
 ```bash
 conda install conda-forge::gdal
 ```
+
+⚠️ Si no quieres instalar `gdal` con **conda**, te debes asegurar que tengas instaldo `gdal` en tu equipo previamente, dependiendo de tu Sistema Operativo.
 
  2. **Generar un ambiente virtual con venv** con Python 3.13.0.
 
@@ -72,20 +74,11 @@ env\Scripts\activate     # En Windows
 pip install pip-tools==7.4.1
 ```
 
-4. Instala `gdal` con el siguiente comando (requiere **conda** para gestionar esta dependencia específica):
-
-```bash
-conda install conda-forge::gdal
-```
-
-⚠️ Si no quieres instalar `gdal` con **conda**, te debes asegurar que tengas instaldo `gdal` en tu equipo previamente, dependiendo de tu Sistema Operativo.
-
-5. Sincroniza e instala las dependencias listadas en el archivo `requirements.txt`:
+4. Sincroniza e instala las dependencias listadas en el archivo `requirements.txt`:
 
 ```bash
 pip-sync requirements.txt
 ```
-
 
 🔎 Nota adicional
 
