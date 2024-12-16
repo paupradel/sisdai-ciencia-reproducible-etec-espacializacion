@@ -3,6 +3,11 @@
 datos/datos-originales/
 datos/datos-procesados/
 *html
+
+
+*/libs/
+*/figure-html/
+*_files/
 #### relacionados a R ####
 # History files
 .Rhistory
