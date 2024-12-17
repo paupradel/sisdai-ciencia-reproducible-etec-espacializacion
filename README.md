@@ -8,13 +8,12 @@ Este proyecto ofrece un conjunto de preprocesamientos esenciales para capas de i
 
 El objetivo principal es proporcionar herramientas de preprocesamiento que, aunque no siempre obligatorias, son comúnmente necesarias dentro del marco de la metodología ETEC. Estos preprocesamientos no siguen un flujo lineal, sino que su aplicación depende de la naturaleza de los datos, el formato en el que se presentan y la fuente de información.  
 
-La sección de procesamiento está dividida en dos apartados diferentes. Existe una carpeta de `python` que incluye herramientas desarrolladas especialmente para llevar a cabo estos procaesos utilizando ese lenguaje de programación, así como ejemplos de uso. Adicionalmente, hay una carpeta de `R` donde ponemos a disposición una serie de ejemplos de cómo utilizar herramientas existentes para llevar a cabo diferentes pasos del proceso ETEC.   
+La sección de procesamiento contiene una carpeta de `R` donde ponemos a disposición una serie de ejemplos de cómo utilizar herramientas existentes para llevar a cabo diferentes pasos del proceso ETEC.   
 
 Además de estas herramientas y ejemplos, en cada una de las carpetas hay una carpeta adicional con una herramienta desarrollada en ese lenguaje para generar metadatos para los conjuntos de datos geográficos siguiendo los lineamientos de los procesos ETEC; cada una de estas carpetas contiene las instrucciones necesarias para utilizar los generadores de metadatos.
 
 
 ## Requerimientos / Dependencias
-### `python`
 
 ### `R`
 
@@ -51,9 +50,7 @@ También recomendamos instalar el IDE [Rstudio](https://www.rstudio.com/categori
 │   ├── datos-originales
 │   └── datos-procesados
 ├── procesamiento
-│   ├── python
-│   │   ├── cuadernos
-│   │   └── modulos
+│   ├
 │   └── R
 │       └── generador-metadatos
 └── .gitignore
@@ -62,8 +59,6 @@ También recomendamos instalar el IDE [Rstudio](https://www.rstudio.com/categori
 ## Instrucciones
 ### General
 Para algunos de los ejemplos que presentamos aquí, utilizamos capas descargadas desde el [portal de Gema](https://gema.conahcyt.mx/). Por conveniencia, en la carpeta de `datos/datos_auxiliares` de este repositorio incluimos las capas de división estatal (la cual se generó con base en el marco geoestadístico del INEGI 2020) y la división municipal  (la cual se generó con base en el marco geoestadístico del INEGI 2023). Recuerda que en Gema puedes encontrar más de 500 capas de información geográfica para complementar tus análisis.
-
-### `python`
 
 ### `R`
 En el apartado de `R` encontrarás ejemplos en formato quarto que puedes seguir para elaborar diferentes tipos de capas según los datos con los que cuentes.
