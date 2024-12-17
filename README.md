@@ -14,7 +14,6 @@ Además de estas herramientas y ejemplos, en cada una de las carpetas hay una ca
 
 
 ## Requerimientos / Dependencias
-### `python`
 
 ### `R`
 
