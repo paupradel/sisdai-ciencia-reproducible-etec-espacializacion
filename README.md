@@ -62,8 +62,6 @@ También recomendamos instalar el IDE [Rstudio](https://www.rstudio.com/categori
 ### General
 Para algunos de los ejemplos que presentamos aquí, utilizamos capas descargadas desde el [portal de Gema](https://gema.conahcyt.mx/). Por conveniencia, en la carpeta de `datos/datos_auxiliares` de este repositorio incluimos las capas de división estatal (la cual se generó con base en el marco geoestadístico del INEGI 2020) y la división municipal  (la cual se generó con base en el marco geoestadístico del INEGI 2023). Recuerda que en Gema puedes encontrar más de 500 capas de información geográfica para complementar tus análisis.
 
-### `python`
-
 ### `R`
 En el apartado de `R` encontrarás ejemplos en formato quarto que puedes seguir para elaborar diferentes tipos de capas según los datos con los que cuentes.
 
